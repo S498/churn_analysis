@@ -5,112 +5,197 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	<style>
+		body {
+			background-color: white;
+		}
+
+		h1 {
+			margin: 0 auto;
+		}
+
+		.container {
+			background-color: lightgray;
+			margin: 1px auto;
+			border: 1px solid black;
+		}
+
+		.row {
+			display: flex;
+			flex-direction: row;
+			align-items: flex-start;
+			padding: 0 5px;
+			margin: 0 auto;
+
+		}
+
+		.column {
+			margin: 5px 25px;
+			padding: 0 5px;
+		}
+
+		.input_heading {
+			font-size: 18px;
+		}
+
+		.output {
+			margin: 0 auto;
+		}
+	</style>
 </head>
 
 <body>
 	<title>Churn Prediction</title>
 	<div class="container">
 		<div class="row">
-
+			<h1>Telecom Customer Churn Analysis Prediction</h1>
+			<br>
+			<br>
+			<br>
 			<form action="http://127.0.0.1:5000/" method="POST">
-				<div class="col-sm-9">
-					<div class="form-group  purple-border">
-						<label for="comment">SeniorCitizen:</label>
-						<br>
-						<input class="form-control" rows="2" id="query1" name="query1" rows="2" cols="5"
-							autofocus>{{query1}}</input>
+				<div>
+					<h5>About</h5>
+					<div class="row">
+						<div class="form-group column">
+							<p class="input_heading">Senior Citizen</p>
+							<label><input type="radio" id="query1" name="query1" value="Yes"> Yes</label>
+							<label><input type="radio" id="query1" name="query1" value="No"> No</label>
+						</div>
+						<div class="form-group column">
+							<p class="input_heading">Gender</p>
+							<label><input type="radio" id="query4" name="query4" value="Male"> Male</label>
+							<label><input type="radio" id="query4" name="query4" value="Female"> Female</label>
+						</div>
+						<div class="form-group column">
+							<p class="input_heading">Partner</p>
+							<label><input type="radio" id="query5" name="query5" value="Yes"> Yes</label>
+							<label><input type="radio" id="query5" name="query5" value="No"> No</label>
+						</div>
+						<div class="form-group column">
+							<p class="input_heading">Dependents</p>
+							<label><input type="radio" id="query6" name="query6" value="Yes"> Yes</label>
+							<label><input type="radio" id="query6" name="query6" value="No"> No</label>
+						</div>
 					</div>
-					<div class="form-group  purple-border">
-						<label for="comment">MonthlyCharges:</label>
-						<input class="form-control" rows="2" id="query2" name="query2" rows="2" cols="5"
-							autofocus>{{query2}}</input>
+					<h5>Services</h5>
+					<div class="row">
+						<div class="form-group column">
+							<p class="input_heading">Phone Service</p>
+							<label><input type="radio" id="query7" name="query7" value="Yes"> Yes</label>
+							<label><input type="radio" id="query7" name="query7" value="No"> No</label>
+						</div>
+						<div class="form-group column">
+							<p class="input_heading">Multiple Lines</p>
+							<label><input type="radio" id="query8" name="query8" value="Yes"> Yes</label>
+							<label><input type="radio" id="query8" name="query8" value="No phone service"> No Phone
+								Service</label>
+							<label><input type="radio" id="query8" name="query8" value="No"> No</label>
+						</div>
+						<div class="form-group column">
+							<p class="input_heading">Internet Service</p>
+							<label><input type="radio" id="query9" name="query9" value="DSL"> DSL</label>
+							<label><input type="radio" id="query9" name="query9" value="Fiber optic"> Fiber
+								Optic</label>
+							<label><input type="radio" id="query9" name="query9" value="No"> No</label>
+						</div>
 					</div>
-					<div class="form-group  purple-border">
-						<label for="comment">TotalCharges:</label>
-						<input class="form-control" rows="2" id="query3" name="query3" rows="2" cols="5"
-							autofocus>{{query3}}</input>
+					<h5>Online Services</h5>
+					<div class="row">
+						<div class="form-group column">
+							<p class="input_heading">Online Security</p>
+							<label><input type="radio" id="query10" name="query10" value="Yes"> Yes</label>
+							<label><input type="radio" id="query10" name="query10" value="No internet service"> No
+								Internet Service</label>
+							<label><input type="radio" id="query10" name="query10" value="No"> No</label>
+						</div>
+						<div class="form-group column">
+							<p class="input_heading">Online Backup</p>
+							<label><input type="radio" id="query11" name="query11" value="Yes"> Yes</label>
+							<label><input type="radio" id="query11" name="query11" value="No internet service"> No
+								Internet Service</label>
+							<label><input type="radio" id="query11" name="query11" value="No"> No</label>
+						</div>
+						<div class="form-group column">
+							<p class="input_heading">Device Protection</p>
+							<label><input type="radio" id="query12" name="query12" value="Yes"> Yes</label>
+							<label><input type="radio" id="query12" name="query12" value="No internet service"> No
+								Internet Service</label>
+							<label><input type="radio" id="query12" name="query12" value="No"> No</label>
+						</div>
+						<div class="form-group column">
+							<p class="input_heading">Tech Support</p>
+							<label><input type="radio" id="query13" name="query13" value="Yes"> Yes</label>
+							<label><input type="radio" id="query13" name="query13" value="No internet service"> No
+								Internet Service</label>
+							<label><input type="radio" id="query13" name="query13" value="No"> No</label>
+						</div>
 					</div>
-					<div class="form-group  purple-border">
-						<label for="comment">gender:</label>
-						<input class="form-control" rows="2" id="query4" name="query4" rows="2" cols="5"
-							autofocus>{{query4}}</input>
+					<h5>Streaming Services</h5>
+					<div class="row">
+						<div class="form-group column">
+							<p class="input_heading">Streaming TV</p>
+							<label><input type="radio" id="query14" name="query14" value="Yes"> Yes</label>
+							<label><input type="radio" id="query14" name="query14" value="No internet service"> No
+								Internet Service</label>
+							<label><input type="radio" id="query14" name="query14" value="No"> No</label>
+						</div>
+						<div class="form-group column">
+							<p class="input_heading">Streaming Movies</p>
+							<label><input type="radio" id="query15" name="query15" value="Yes"> Yes</label>
+							<label><input type="radio" id="query15" name="query15" value="No internet service"> No
+								Internet Service</label>
+							<label><input type="radio" id="query15" name="query15" value="No"> No</label>
+						</div>
 					</div>
-					<div class="form-group  purple-border">
-						<label for="comment">Partner:</label>
-						<input class="form-control" rows="2" id="query5" name="query5" rows="2" cols="5"
-							autofocus>{{query5}}</input>
-					</div>
-					<div class="form-group  purple-border">
-						<label for="comment">Dependents:</label>
-						<input class="form-control" rows="2" id="query6" name="query6" rows="2" cols="5"
-							autofocus>{{query6}}</input>
-					</div>
-					<div class="form-group  purple-border">
-						<label for="comment">PhoneService:</label>
-						<input class="form-control" rows="2" id="query7" name="query7" rows="2" cols="5"
-							autofocus>{{query7}}</input>
-					</div>
-					<div class="form-group  purple-border">
-						<label for="comment">MultipleLines:</label>
-						<input class="form-control" rows="2" id="query8" name="query8" rows="2" cols="5"
-							autofocus>{{query8}}</input>
-					</div>
-					<div class="form-group  purple-border">
-						<label for="comment">InternetService:</label>
-						<input class="form-control" rows="2" id="query9" name="query9" rows="2" cols="5"
-							autofocus>{{query9}}</input>
-					</div>
-					<div class="form-group  purple-border">
-						<label for="comment">OnlineSecurity:</label>
-						<input class="form-control" rows="2" id="query10" name="query10" rows="2" cols="5"
-							autofocus>{{query10}}</input>
-					</div>
-					<div class="form-group  purple-border">
-						<label for="comment">OnlineBackup:</label>
-						<input class="form-control" rows="2" id="query11" name="query11" rows="2" cols="5"
-							autofocus>{{query11}}</input>
-					</div>
-					<div class="form-group  purple-border">
-						<label for="comment">DeviceProtection:</label>
-						<input class="form-control" rows="2" id="query12" name="query12" rows="2" cols="5"
-							autofocus>{{query12}}</input>
-					</div>
-					<div class="form-group  purple-border">
-						<label for="comment">TechSupport:</label>
-						<input class="form-control" rows="2" id="query13" name="query13" rows="2" cols="5"
-							autofocus>{{query13}}</input>
-					</div>
-					<div class="form-group  purple-border">
-						<label for="comment">StreamingTV:</label>
-						<input class="form-control" rows="2" id="query14" name="query14" rows="2" cols="5"
-							autofocus>{{query14}}</input>
-					</div>
-					<div class="form-group  purple-border">
-						<label for="comment">StreamingMovies:</label>
-						<input class="form-control" rows="2" id="query15" name="query15" rows="2" cols="5"
-							autofocus>{{query15}}</input>
-					</div>
-					<div class="form-group  purple-border">
-						<label for="comment">Contract:</label>
-						<input class="form-control" rows="2" id="query16" name="query16" rows="2" cols="5"
-							autofocus>{{query16}}</input>
-					</div>
-					<div class="form-group  purple-border">
-						<label for="comment">PaperlessBilling:</label>
-						<input class="form-control" rows="2" id="query17" name="query17" rows="2" cols="5"
-							autofocus>{{query17}}</input>
-					</div>
-					<div class="form-group  purple-border">
-						<label for="comment">PaymentMethod:</label>
-						<input class="form-control" rows="2" id="query18" name="query18" rows="2" cols="5"
-							autofocus>{{query18}}</input>
-					</div>
-					<div class="form-group  purple-border">
-						<label for="comment">tenure:</label>
-						<input class="form-control" rows="2" id="query19" name="query19" rows="2" cols="5"
-							autofocus>{{query19}}</input>
+					<h5>Payment Preferences</h5>
+					<div class="row">
+						<div class="form-group column">
+							<p class="input_heading">Contract</p>
+							<label><input type="radio" id="query16" name="query16" value="Month-to-month">
+								Month
+								to
+								Month</label>
+							<label><input type="radio" id="query16" name="query16" value="One year"> One
+								Year</label>
+							<label><input type="radio" id="query16" name="query16" value="Two year"> Two
+								Years</label>
+						</div>
+						<div class="form-group column">
+							<p class="input_heading">Paperless Billing</p>
+							<label><input type="radio" id="query17" name="query17" value="Yes">
+								Yes</label>
+							<label><input type="radio" id="query17" name="query17" value="No"> No</label>
+						</div>
+						<div class="form-group column">
+							<p class="input_heading">Payment Method</p>
+							<label><input type="radio" id="query18" name="query18" value="Bank transfer (automatic)">
+								Bank
+								Transfer (automatic)</label>
+							<label><input type="radio" id="query18" name="query18" value="Credit card (automatic)">
+								Credit
+								card (automatic)</label>
+							<label><input type="radio" id="query18" name="query18" value="Electronic check"> Electronic
+								Cheque</label>
+							<label><input type="radio" id="query18" name="query18" value="Mailed check"> Mailed
+								Cheque</label>
+						</div>
+					</div><br>
+					<div class="row">
+						<div class="form-group column">
+							<p class="input_heading">Tenure</p>
+							<input class="form-control" rows="2" id="query19" name="query19" rows="2" cols="5" />
+						</div>
+						<div class="form-group column">
+							<p class="input_heading">Monthly Charges</p>
+							<input class="form-control" rows="2" id="query2" name="query2" rows="2" cols="5" />
+						</div>
+						<div class="form-group column">
+							<p class="input_heading">Total Charges</p>
+							<input class="form-control" rows="2" id="query3" name="query3" rows="2" cols="5" />
+						</div>
 					</div>
 				</div>
+				<br>
 				<div class="col-sm-3">
 					<button type="submit" class="btn btn-primary" name="submit">SUBMIT</button>
 				</div>
@@ -118,200 +203,14 @@
 		</div>
 
 		<div class="row">
-			<div class="col-sm-9">
-				<textarea class="form-control" rows="2" id="comment" name="query6" rows="2" cols="5"
-					autofocus>{{output1}}</textarea>
-				<textarea class="form-control" rows="2" id="comment" name="query7" rows="2" cols="5"
-					autofocus>{{output2}}</textarea>
+			<div class="output col-sm-9">
+				<textarea class="form-control" rows="2" id="comment" name="query6" rows="2"
+					cols="5">{{output1}}</textarea>
+				<textarea class="form-control" rows="2" id="comment" name="query7" rows="2"
+					cols="5">{{output2}}</textarea>
 			</div>
 		</div>
 	</div>
 </body>
 
 </html>
-
-<!-- <!DOCTYPE html>
-<html lang="en">
-
-<head>
-	<meta charset="UTF-8">
-	<title>Churn Prediction</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-	<style>
-		body {
-			font-family: Arial, sans-serif;
-			background-color: #f2f2f2;
-		}
-
-		h1 {
-			text-align: center;
-			margin-top: 50px;
-			margin-bottom: 50px;
-		}
-
-		.form-group {
-			margin-bottom: 30px;
-		}
-
-		.form-control:focus {
-			box-shadow: none;
-			border-color: #8E24AA;
-		}
-
-		.btn {
-			background-color: #8E24AA;
-			color: #fff;
-			font-size: 18px;
-			font-weight: bold;
-			border-radius: 0;
-			padding: 10px 20px;
-			border: none;
-		}
-
-		.btn:hover,
-		.btn:focus {
-			background-color: #6A1B9A;
-			color: #fff;
-		}
-
-		.purple-border {
-			border: 2px solid #8E24AA;
-			border-radius: 10px;
-			padding: 15px;
-			background-color: #fff;
-			box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-		}
-	</style>
-</head>
-
-<body>
-	<div class="container">
-		<h1>Churn Prediction</h1>
-		<form action="http://127.0.0.1:5000/" method="POST">
-			<div class="form-group">
-				<label for="query1">SeniorCitizen:</label><br>
-				<label><input type="radio" id="query1" name="query1" value="Yes" autofocus> Yes</label>
-				<label><input type="radio" id="query1" name="query1" value="No"> No</label>
-			</div>
-			<div class="form-group">
-				<label for="query2">MonthlyCharges:</label>
-				<input class="form-control" id="query2" name="query2" autofocus />
-			</div>
-			<div class="form-group">
-				<label for="query3">TotalCharges:</label>
-				<input class="form-control" id="query3" name="query3" autofocus />
-			</div>
-			<div class="form-group">
-				<label for="query4">Gender:</label><br>
-				<label><input type="radio" id="query4" name="query4" value="Male" autofocus> Male</label>
-				<label><input type="radio" id="query4" name="query4" value="Female"> Female</label>
-			</div>
-			<div class="form-group">
-				<label for="query5">Partner:</label><br>
-				<label><input type="radio" id="query5" name="query5" value="Yes" autofocus> Yes</label>
-				<label><input type="radio" id="query5" name="query5" value="No"> No</label>
-			</div>
-			<div class="form-group">
-				<label for="query6">Dependents:</label><br>
-				<label><input type="radio" id="query6" name="query6" value="Yes" autofocus> Yes</label>
-				<label><input type="radio" id="query6" name="query6" value="No"> No</label>
-			</div>
-			<div class="form-group">
-				<label for="query7">PhoneService:</label><br>
-				<label><input type="radio" id="query7" name="query7" value="Yes" autofocus> Yes</label>
-				<label><input type="radio" id="query7" name="query7" value="No"> No</label>
-			</div>
-			<div class="form-group">
-				<label for="query8">MultipleLines:</label><br>
-				<label><input type="radio" id="8" name="8" value="Yes" autofocus> Yes</label>
-				<label><input type="radio" id="8" name="8" value="No phone service"> No Phone Service</label>
-				<label><input type="radio" id="8" name="8" value="No"> No</label>
-			</div>
-			<div class="form-group">
-				<label for="query9">InternetService:</label><br>
-				<label><input type="radio" id="query9" name="query9" value="DSL" autofocus> DSL</label>
-				<label><input type="radio" id="query9" name="query9" value="Fiber optic" autofocus> Fiber Optic</label>
-				<label><input type="radio" id="query9" name="query9" value="No"> No</label>
-			</div>
-			<div class="form-group">
-				<label for="query10">OnlineSecurity:</label><br>
-				<label><input type="radio" id="query10" name="query10" value="Yes" autofocus> Yes</label>
-				<label><input type="radio" id="query10" name="query10" value="No internet service" autofocus> No
-					Internet Service</label>
-				<label><input type="radio" id="query10" name="query10" value="No"> No</label>
-			</div>
-			<div class="form-group">
-				<label for="query11">OnlineBackup:</label><br>
-				<label><input type="radio" id="query11" name="query11" value="Yes" autofocus> Yes</label>
-				<label><input type="radio" id="query11" name="query11" value="No internet service" autofocus> No
-					Internet Service</label>
-				<label><input type="radio" id="query11" name="query11" value="No"> No</label>
-			</div>
-			<div class="form-group">
-				<label for="query12">DeviceProtection:</label><br>
-				<label><input type="radio" id="query12" name="query12" value="Yes" autofocus> Yes</label>
-				<label><input type="radio" id="query12" name="query12" value="No internet service" autofocus> No
-					Internet Service</label>
-				<label><input type="radio" id="query12" name="query12" value="No"> No</label>
-			</div>
-			<div class="form-group">
-				<label for="query13">TechSupport:</label><br>
-				<label><input type="radio" id="query13" name="query13" value="Yes" autofocus> Yes</label>
-				<label><input type="radio" id="query13" name="query13" value="No internet service" autofocus> No
-					Internet Service</label>
-				<label><input type="radio" id="query13" name="query13" value="No"> No</label>
-			</div>
-			<div class="form-group">
-				<label for="query14">StreamingTV:</label><br>
-				<label><input type="radio" id="query14" name="query14" value="Yes" autofocus> Yes</label>
-				<label><input type="radio" id="query14" name="query14" value="No internet service" autofocus> No
-					Internet Service</label>
-				<label><input type="radio" id="query14" name="query14" value="No"> No</label>
-			</div>
-			<div class="form-group">
-				<label for="15">StreamingMovies:</label><br>
-				<label><input type="radio" id="query15" name="query15" value="Yes" autofocus> Yes</label>
-				<label><input type="radio" id="query15" name="query15" value="No internet service" autofocus> No
-					Internet Service</label>
-				<label><input type="radio" id="query15" name="query15" value="No"> No</label>
-			</div>
-			<div class="form-group">
-				<label for="query16">Contract:</label><br>
-				<label><input type="radio" id="query16" name="query16" value="Month-to-month" autofocus> Month to
-					Month</label>
-				<label><input type="radio" id="query16" name="query16" value="One year" autofocus> One Year</label>
-				<label><input type="radio" id="query16" name="query16" value="Two year"> Two Years</label>
-			</div>
-			<div class="form-group">
-				<label for="query17">PaperlessBilling:</label><br>
-				<label><input type="radio" id="query17" name="query17" value="Yes" autofocus> Yes</label>
-				<label><input type="radio" id="query17" name="query17" value="No"> No</label>
-			</div>
-			<div class="form-group">
-				<label for="query18">PaymentMethod:</label><br>
-				<label><input type="radio" id="query18" name="query18" value="Bank transfer (automatic)" autofocus> Bank
-					Transfer (automatic)</label>
-				<label><input type="radio" id="query18" name="query18" value="Credit card (automatic)" autofocus> Credit
-					card (automatic)</label>
-				<label><input type="radio" id="query18" name="query18" value="Electronic check"> Electronic
-					Cheque</label>
-				<label><input type="radio" id="query18" name="query18" value="Mailed check"> Mailed Cheque</label>
-			</div>
-			<div class="form-group">
-				<label for="query19">tenure:</label><br>
-				<input class="form-control" id="query19" name="q uery19" autofocus />
-			</div>
-
-			<button type="submit" class="btn btn-primary" name="submit">SUBMIT</button>
-		</form>
-	</div>
-	<div class="col-sm-9">
-		<textarea class="form-control" rows="2" id="comment" name="query6" rows="2" cols="5"
-			autofocus>{{output1}}</textarea>
-		<textarea class="form-control" rows="2" id="comment" name="query7" rows="2" cols="5"
-			autofocus>{{output2}}</textarea>
-	</div>
-
-</body>
-
-</html> -->
